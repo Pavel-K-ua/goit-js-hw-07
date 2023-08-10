@@ -21,6 +21,7 @@ return `<li class="gallery__item">
 refs.galleryLIst.insertAdjacentHTML("afterbegin", markup);
 refs.galleryLIst.addEventListener("click", onGalleryListClick)
 
+
 function onGalleryListClick (event) {
     event.preventDefault();
     const instance = basicLightbox.create(`
@@ -29,12 +30,12 @@ function onGalleryListClick (event) {
     
     instance.show()
 
-    document.addEventListener('keydown', onModalKeyDown)
+    document.addEventListener('keydown', onKeyDown)
 
-function onModalKeyDown(event) {
+function onKeyDown(event) {
     if(event.key === 'Escape') {
         instance.close()
-        document.removeEventListener('keydown', onModalKeyDown)
+        document.removeEventListener('keydown', onKeyDown)
     }
 }    
 }
