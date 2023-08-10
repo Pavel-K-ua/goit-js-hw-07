@@ -27,11 +27,13 @@ refs.galleryLIst.addEventListener("click", onGalleryListClick);
 
 function onGalleryListClick(event) {
   event.preventDefault();
+    
   const instance = basicLightbox.create(`
 		<img width="1400" height="900" src=${event.target.dataset.source}>
 	`);
 
-  instance.show();
+  if(event.target.nodeName === "IMG"){
+  instance.show()};
 
   document.addEventListener("keydown", onKeyDown);
 
